@@ -1,3 +1,60 @@
 // Place all the styles related to the calendar controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap';
+@import 'font-awesome';
+
+$margin: 10px;
+
+* { box-sizing: border-box; }
+
+.container { 
+	margin-top: 50px; 
+	height: 300px;
+	width: 100%;
+	border: 1px solid black;
+	padding: $margin;
+	overflow-x: auto;
+}
+
+#calendar {
+	height: 100%;
+	white-space: nowrap;
+
+	.month {
+		@include size(100%, 200px);
+		@include border-radius(5px);
+		border: 1px solid #666666;
+		display: inline-block;
+		margin-right: $margin;
+		.title {
+			border-bottom: 1px solid #666666;
+			padding: 0 ($margin / 2);
+		}
+		.body {
+			// padding: $margin / 2;
+			height: 75%;
+		}
+
+		.day {
+			display: inline-block;
+			height: 100%;
+			padding: 2px;
+			text-align: right;
+		}
+		.day + .day { border-left: 1px solid #999; }
+	}
+	.month.small {
+		font-size: 60%;
+	}
+}
+
+#controls {
+	margin-top: $margin * 2;
+	.btn-group {
+		width: 250px;
+		margin: auto;
+		.btn { width: 50%; }
+	}
+}
